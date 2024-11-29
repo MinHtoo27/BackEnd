@@ -160,7 +160,7 @@ app.use((req, res) => {
     res.status(404).json({ error: 'Endpoint not found' });
 });
 
-// Start the server
+
 const PORT = 3000; // You can change this port number if required
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
