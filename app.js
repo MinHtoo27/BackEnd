@@ -53,7 +53,7 @@ app.get('/api/orders', async (req, res) => {
 });
 
 
-// Modify the POST /api/orders route
+
 app.post('/api/orders', async (req, res) => {
     const { customerName, lessons } = req.body;
     
