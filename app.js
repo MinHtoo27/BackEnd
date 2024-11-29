@@ -62,7 +62,7 @@ app.post('/api/orders', async (req, res) => {
     }
 
     try {
-        // Validate all lessons before processing
+        
         for (let lesson of lessons) {
             const foundLesson = await lessonsCollection.findOne({
                 _id: new ObjectId(lesson.lessonId),
