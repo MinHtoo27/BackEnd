@@ -15,7 +15,7 @@ const client = new MongoClient(MONGO_URI, { useUnifiedTopology: true });
 let lessonsCollection;
 let ordersCollection;
 
-// Connect to MongoDB
+
 async function connectToDatabase() {
     try {
         await client.connect();
