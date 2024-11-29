@@ -76,7 +76,7 @@ app.post('/api/orders', async (req, res) => {
             }
         }
 
-        // Create order
+        
         const newOrder = {
             customerName,
             lessons: lessons.map(lesson => ({
