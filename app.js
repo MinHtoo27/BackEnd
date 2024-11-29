@@ -8,7 +8,7 @@ app.use(cors()); // Add this line to enable CORS
 app.use(bodyParser.json());
 app.use(express.json()); // Fixed the typo here
 
-// MongoDB Connection
+
 const MONGO_URI = 'mongodb+srv://Minhtoo27:Mhkmhk200327@minhtoo.ez3z0.mongodb.net/';
 const client = new MongoClient(MONGO_URI, { useUnifiedTopology: true });
 
