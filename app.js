@@ -31,7 +31,7 @@ async function connectToDatabase() {
 
 connectToDatabase();
 
-// Fetch all lessons
+
 app.get('/api/lessons', async (req, res) => {
     try {
         const lessons = await lessonsCollection.find({}).toArray();
