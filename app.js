@@ -4,7 +4,7 @@ const { MongoClient, ObjectId } = require('mongodb');
 const cors = require('cors'); // Add this line
 
 const app = express();
-app.use(cors()); // Add this line to enable CORS
+app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json()); // Fixed the typo here
 
