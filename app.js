@@ -161,7 +161,7 @@ app.use((req, res) => {
 });
 
 
-const PORT = 3000; // You can change this port number if required
+const PORT = process.env.PORT|| 3000; // You can change this port number if required
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 process.on('SIGINT', async () => {
