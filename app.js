@@ -1,12 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { MongoClient, ObjectId } = require('mongodb');
-const cors = require('cors'); // Add this line
+const cors = require('cors'); 
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
-app.use(express.json()); // Fixed the typo here
+app.use(express.json()); 
 
 
 const MONGO_URI = 'mongodb+srv://Minhtoo27:Mhkmhk200327@minhtoo.ez3z0.mongodb.net/';
@@ -105,7 +105,7 @@ app.post('/api/orders', async (req, res) => {
 
         const result = await ordersCollection.insertOne(newOrder);
 
-        // Update spaces for each lesson
+        
         for (let lesson of lessons) {
             await lessonsCollection.updateOne(
                 { _id: new ObjectId(lesson.lessonId) },
@@ -124,7 +124,7 @@ app.post('/api/orders', async (req, res) => {
 });
 
 
-// Add a lesson to the cart (reduce spaces)
+
 app.post('/api/cart', async (req, res) => {
     const { id } = req.body;
     if (!id) {
@@ -148,7 +148,7 @@ app.post('/api/cart', async (req, res) => {
     }
 });
 
-// Restore lesson spaces
+
 app.post('/api/cart/remove', async (req, res) => {
     const { id } = req.body;
     if (!id) {
@@ -172,13 +172,13 @@ app.post('/api/cart/remove', async (req, res) => {
     }
 });
 
-// Handle unknown routes
+
 app.use((req, res) => {
     res.status(404).json({ error: 'Endpoint not found' });
 });
 
 
-const PORT = process.env.PORT|| 3000; // You can change this port number if required
+const PORT = process.env.PORT|| 3000; 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 process.on('SIGINT', async () => {
