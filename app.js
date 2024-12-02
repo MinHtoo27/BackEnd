@@ -53,30 +53,22 @@ app.get('/api/orders', async (req, res) => {
 });
 
 app.post('/api/lessons', async (req, res) => {
-    const { title, description, spaces } = req.body;
+    const { id, subject, location, price, spaces, icon } = req.body;
 
-    if (!title || !description || !Number.isInteger(spaces) || spaces < 0) {
+    if (!id || !subject || !location || !price || !Number.isInteger(spaces) || spaces < 0 || !icon) {
         return res.status(400).json({ error: 'Invalid input' });
     }
 
     try {
-        const newLesson = {
-            title,
-            description,
-            spaces,
-            createdDate: new Date()
-        };
-
+        const newLesson = { id, subject, location, price, spaces, icon, createdDate: new Date() };
         const result = await lessonsCollection.insertOne(newLesson);
-        res.status(201).json({ 
-            message: 'Lesson created successfully', 
-            lessonId: result.insertedId 
-        });
+        res.status(201).json({ message: 'Lesson created successfully', lessonId: result.insertedId });
     } catch (error) {
         console.error("Error creating lesson:", error);
         res.status(500).json({ error: 'Failed to create lesson' });
     }
 });
+
 
 
 app.post('/api/orders', async (req, res) => {
